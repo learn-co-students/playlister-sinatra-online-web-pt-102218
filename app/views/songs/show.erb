@@ -1,0 +1,16 @@
+<body>
+    <%if !!flash[:message] %>
+        <h1><%=flash[:message]%></h1>
+    <%end%>
+    <h1><%=@song.name%></h1>
+
+    <h2>Artist</h2>
+    <a href="/artists/<%=@song.artist.slug%>"><%=@song.artist.name%></a>
+
+    <h2>Genres</h2>
+    <ul>
+    <%@song.genres.each do |genre|%>
+        <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
+    <%end%>
+    </ul>
+</body>
